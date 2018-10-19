@@ -54,7 +54,7 @@ def not_bad(s):
 def front_back(a, b):
     mid_a = len(a) // 2
     mid_b = len(b) // 2
-    if len(a) % 2 == 1:  # add 1 if length is odd
+    if len(a) % 2 == 1:
         mid_a = mid_a + 1
     if len(b) % 2 == 1:
         mid_b = mid_b + 1

@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# Copyright 2010 Google Inc.
-# Licensed under the Apache License, Version 2.0
-# http://www.apache.org/licenses/LICENSE-2.0
-
-# Google's Python Class
-# http://code.google.com/edu/languages/google-python-class/
-
 # Basic string exercises
 # Fill in the code for the functions below. main() is already set up
 # to call the functions with a few different inputs,
@@ -15,7 +7,6 @@
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in string2.py.
 
-
 # A. donuts
 # Given an int count of a number of donuts, return a string
 # of the form 'Number of donuts: <count>', where <count> is the number
@@ -23,9 +14,13 @@
 # instead of the actual count.
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
+
+
 def donuts(count):
-    """Your code goes here.  Edit this docstring."""
-    return
+    if count < 10:
+        return "Number of donuts: {}".format(count)
+    else:
+        return "Number of donuts: many"
 
 
 # B. both_ends
@@ -33,9 +28,12 @@ def donuts(count):
 # and the last 2 chars of the original string,
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
-def both_ends(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+def both_ends(string):
+    if len(string) < 2:
+        string = ""
+        return string
+    else:
+        return string[:2] + string[-2:]
 
 
 # C. fix_start
@@ -47,9 +45,12 @@ def both_ends(s):
 # Assume that the string is length 1 or more.
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
-def fix_start(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+def fix_start(string):
+    first_letter = string[0]
+    other_letters = string[1:]
+    converted = other_letters.replace(first_letter, "*")
+    answer = first_letter + converted
+    return answer
 
 
 # D. MixUp
@@ -60,8 +61,11 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    string1_first_letter = a[0:2]
+    string2_first_letter = b[0:2]
+    swap1 = a.replace(string1_first_letter, string2_first_letter)
+    swap2 = b.replace(string2_first_letter, string1_first_letter)
+    return swap1 + " " + swap2
 
 
 # Provided simple test() function used in main() to print

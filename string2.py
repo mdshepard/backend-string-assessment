@@ -18,8 +18,12 @@
 
 
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    if len(s) <= 3:
+        return s
+    elif len(s) > 3 and s.endswith("ing"):
+        return s + "ly"
+    else:
+        return s + "ing"
 
 
 # E. not_bad
@@ -31,8 +35,12 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    s_not = s.find("not")
+    s_bad = s.find("bad")
+    if s_bad > s_not:
+        s = s.replace(s[s_not:(s_bad+3)], "good")
+
+    return s
 
 
 # F. front_back
@@ -41,10 +49,16 @@ def not_bad(s):
 # If the length is odd, we'll say that the extra char goes in the front half.
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
-#  a-front + b-front + a-back + b-back
+# a-front + b-front + a-back + b-back
+# This solution feels gross.
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    mid_a = len(a) // 2
+    mid_b = len(b) // 2
+    if len(a) % 2 == 1:  # add 1 if length is odd
+        mid_a = mid_a + 1
+    if len(b) % 2 == 1:
+        mid_b = mid_b + 1
+    return a[:mid_a] + b[:mid_b] + a[mid_a:] + b[mid_b:]
 
 
 # Provided simple test() function used in main() to print
